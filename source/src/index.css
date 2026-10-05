@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* Mobile & Touch Optimizations */
+html, body {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", sans-serif;
+  background-color: #F8FAF9;
+  color: #1e293b;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Safe area insets for mobile iOS / Android bottom bars */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: calc(var(--safe-bottom) + 1rem);
+}
+
+.pt-safe {
+  padding-top: calc(var(--safe-top) + 0.5rem);
+}
+
+/* Hide scrollbar on mobile horizontal tag chips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-pulseSlow {
+  animation: pulseSlow 2s ease-in-out infinite;
+}
+
+/* Mobile Media Queries (< 768px and < 640px) */
+@media (max-width: 768px) {
+  /* Prevent text auto-zoom on iOS inputs */
+  button, input, select, textarea {
+    font-size: 14px;
+  }
+
+  /* Compact container paddings */
+  .mobile-card {
+    padding: 0.875rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Full-bleed bottom sheet modal on mobile */
+  .mobile-sheet {
+    max-height: 94vh !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* Reduce gap on small mobile grids */
+  .mobile-gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small mobile adjustments (360px ~ 430px) */
+  h1 {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+  }
+  h2 {
+    font-size: 0.95rem !important;
+    line-height: 1.35 !important;
+  }
+  h3 {
+    font-size: 0.875rem !important;
+  }
+  .compact-stat {
+    font-size: 1.25rem !important;
+  }
+  .mobile-p-3 {
+    padding: 0.75rem !important;
+  }
+}
+
+/* Print Styles for Fact Report and Committee Application */
+@media print {
+  nav, footer, .no-print, button, .mobile-drag-handle {
+    display: none !important;
+  }
+  body, html {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt !important;
+  }
+  .print-area {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

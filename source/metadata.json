@@ -1,0 +1,6 @@
+{
+  "name": "True Education",
+  "description": "교사 상담 기록 및 교권침해 분석 AI 에이전트. 빠른 메모, 실시간 음성 기록, 법령 근거 분석 및 사실 경과서 작성.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
